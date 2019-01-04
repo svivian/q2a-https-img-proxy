@@ -1,0 +1,14 @@
+{
+	"name": "HTTPS image proxy",
+	"uri": "https://github.com/svivian/q2a-https-img-proxy",
+	"description": "Converts embedded images to use HTTPS links via a proxy rather than HTTP.",
+	"version": "0.1",
+	"date": "2019-01-04",
+	"author": "Scott Vivian",
+	"author_uri": "http://codelair.com",
+	"license": "GPLv3",
+	"update_uri": "https://raw.githubusercontent.com/svivian/q2a-https-img-proxy/master/metadata.json",
+	"min_q2a": "1.7",
+	"min_php": "5.4",
+	"load_order": "after_db_init"
+}
