@@ -1,4 +1,9 @@
 <?php
+/*
+	Question2Answer HTTPS image proxy plugin
+	Copyright (C) 2018 Scott Vivian
+	License: https://www.gnu.org/licenses/gpl.html
+*/
 
 return [
 
@@ -6,7 +11,7 @@ return [
 	'secretKey' => '',
 
 	// public URL of the proxy script
-	'proxyURL' => '/qa-plugin/https-img-proxy/imgproxy.php',
+	'proxyUrl' => '/qa-plugin/https-img-proxy/imgproxy.php',
 
 	// directory in which to cache images locally (full server path, no trailing slash)
 	'cacheDir' => __DIR__ . '/cache',
@@ -18,14 +23,14 @@ return [
 	'missingImage' => __DIR__ . '/missing.png',
 
 	// domains that are known to work over HTTPS
-	'knownHosts' => [
+	'secureHosts' => [
 		'i.ytimg.com',
 		'i.reddit.com',
 		'i.imgur.com',
 	],
 
 	// allowed mime types
-	'validMimes' = [
+	'validMimes' => [
 		'image/jpg' => 'jpg',
 		'image/jpeg' => 'jpg',
 		'image/png' => 'png',
