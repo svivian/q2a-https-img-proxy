@@ -147,3 +147,13 @@ $proxy->serveImageIfValid($cacheData, $contentType);
 list($imageData, $contentType) = $proxy->getExternalImage($url);
 $proxy->saveCache($imageData, $contentType, $hash);
 $proxy->serveImageIfValid($imageData, $contentType);
+
+
+// if we get to here, image could not be found or timed out; serve placeholder image instead
+if (strlen($config->missingImage) > 0) {
+	$contentType = mime_content_type($config->missingImage);
+	$missingData = file_get_contents($config->missingImage);
+	// although we could just serve the placeholder, we cache it to avoid repeated requests to the original
+	$proxy->saveCache($missingData, $contentType, $hash);
+	$proxy->serveImageIfValid($missingData, $contentType);
+}
