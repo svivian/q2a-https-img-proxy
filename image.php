@@ -8,10 +8,6 @@
 // prevent errors messing with image data
 @ini_set('display_errors', 0);
 
-if (!isset($_GET['img']) || !isset($_GET['hash'])) {
-	exit;
-}
-
 class WAProxyHelper
 {
 	private $config;
@@ -121,14 +117,18 @@ class WAProxyHelper
 }
 
 
+if (!isset($_GET['url']) || !isset($_GET['key'])) {
+	exit;
+}
+
 // load config
 require_once __DIR__ . '/WAConfig.php';
 $params = require __DIR__ . '/config.php';
 $config = new WAConfig($params);
 $proxy = new WAProxyHelper($config);
 
-$url = $_GET['img'];
-$hash = $_GET['hash'];
+$url = $_GET['url'];
+$hash = $_GET['key'];
 
 // check request is secure
 if (!$proxy->isValidRequest($url, $hash)) {

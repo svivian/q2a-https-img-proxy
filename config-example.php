@@ -11,7 +11,7 @@ return [
 	'secretKey' => '',
 
 	// public URL of the proxy script
-	'proxyUrl' => '/qa-plugin/https-img-proxy/imgproxy.php',
+	'proxyUrl' => '/qa-plugin/https-img-proxy/image.php',
 
 	// directory in which to cache images locally (full server path, no trailing slash)
 	'cacheDir' => __DIR__ . '/cache',

@@ -31,6 +31,4 @@ Installation & Usage
 	- `secureHosts` --- an array of domain names that are known to work over HTTPS. Any HTTP images on these domains will be linked on the HTTPS version of the original domain instead of the proxy (for example `http://i.imgur.com` will be replaced by `https://i.imgur.com` instead of `imgproxy.php?...`).
 	- `validMimes` --- a list of valid MIME types. This should not require editing but the option is there.
 
-4. If your site uses a different language, copy `qa-hip-lang-default.php` to a new file with the required country code (e.g. `qa-hip-lang-de.php` for German) and edit the phrases for your language.
-
-5. Log in to your Q2A site as an Administrator, head to Admin > Plugins and enable the plugin. Check everything is working as expected - images that were originally HTTP should now have a URL of the form `/qa-plugin/https-img-proxy/imgproxy.php?img=http%3A%2F%2Fexample.com%2Fimage.jpg&hash=abc123def456`
+4. Log in to your Q2A site as an Administrator, head to Admin > Plugins and enable the plugin. Check everything is working as expected - images that were originally HTTP should now have a URL of the form `/qa-plugin/https-img-proxy/imgproxy.php?img=http%3A%2F%2Fexample.com%2Fimage.jpg&hash=abc123def456`
