@@ -23,12 +23,12 @@ Installation & Usage
 2. Download and extract the files to your plugins folder (e.g. `qa-plugins/https-img-proxy`). Check the [releases page](https://github.com/svivian/q2a-tagging-tools/releases) for the latest official version.
 
 3. Rename `config-example.php` to `config.php`. For performance reasons, configuration for this plugin is done via PHP and not Q2A options. The config options are:
-	- `secretKey` --- should be a long string of random characters. This is used to calculate the 'hash' parameter in the URL, providing security so that no one can just link up any image through your site.
+	- `secretKey` --- should be a long string of random characters. This is used to calculate the hash in the URL, providing security so that no one can just link up any image through your site.
 	- `proxyUrl` --- the public URL of the proxy script, as will be linked from the image src attribute. It's recommended to include the domain name to ensure HTTPS.
 	- `cacheDir` --- directory to cache images to locally (avoids overhead). Must be a full server path.
 	- `cacheLength` --- length of time, in seconds, to cache images locally. This is also used for the HTTP Cache-control header (for the user's browser cache).
 	- `missingImage` --- an image to use if the original cannot be loaded or times out. It can be a server path, or a URL (provided the `file_get_contents` works with URL wrappers on your server).
-	- `secureHosts` --- an array of domain names that are known to work over HTTPS. Any HTTP images on these domains will be linked on the HTTPS version of the original domain instead of the proxy (for example `http://i.imgur.com` will be replaced by `https://i.imgur.com` instead of `imgproxy.php?...`).
+	- `secureHosts` --- an array of domain names that are known to work over HTTPS. Any HTTP images on these domains will be linked on the HTTPS version of the original domain instead of the proxy (for example `http://i.imgur.com` will be replaced by `https://i.imgur.com` instead of `image.php?url=...`).
 	- `validMimes` --- a list of valid MIME types. This should not require editing but the option is there.
 
-4. Log in to your Q2A site as an Administrator, head to Admin > Plugins and enable the plugin. Check everything is working as expected - images that were originally HTTP should now have a URL of the form `/qa-plugin/https-img-proxy/imgproxy.php?img=http%3A%2F%2Fexample.com%2Fimage.jpg&hash=abc123def456`
+4. Log in to your Q2A site as an Administrator, head to Admin > Plugins and enable the plugin. Check everything is working as expected - images that were originally HTTP should now have a URL of the form `/qa-plugin/https-img-proxy/image.php?url=http%3A%2F%2Fexample.com%2Fimage.jpg&key=abc123def456`
