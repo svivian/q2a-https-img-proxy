@@ -53,7 +53,7 @@ class qa_html_theme_layer extends qa_html_theme_base
 		$content = preg_replace_callback($extSearch, function($matches) {
 			$url = $matches[1];
 			$hash = substr(md5($this->config->secretKey . $url), 0, $this->config->hashLength);
-			return sprintf('<img src="%s?url=%s&key=%s"', $this->config->proxyUrl, urlencode($url), $hash);
+			return sprintf('<img src="%s?key=%s&url=%s"', $this->config->proxyUrl, $hash, urlencode($url));
 		}, $content);
 
 		return $content;
